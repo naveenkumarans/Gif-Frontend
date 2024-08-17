@@ -1,0 +1,16 @@
+<div>
+  <h2>All GIFs</h2>
+  <div *ngIf="gifs.length > 0; else noGifs">
+    <div *ngFor="let gif of gifs">
+      <img [src]="gif.url" alt="GIF" />
+      <p>Tags: {{ gif.tags }}</p>
+      <p>Clicks: {{ gif.clicks }}</p>
+      <p>Shares: {{ gif.shares }}</p>
+      <button (click)="recordClick(gif.id)">Click</button>
+      <button (click)="recordShare(gif.id)">Share</button>
+    </div>
+  </div>
+  <ng-template #noGifs>
+    <p>No GIFs available.</p>
+  </ng-template>
+</div>
